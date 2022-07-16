@@ -20,7 +20,7 @@ const VideoChat = () => {
 
   const handleSubmit = useCallback(async () => {
     setConnecting(true);
-    const data = await fetch("/video/token", {
+    const res = await fetch("/video/token", {
       method: "POST",
       body: JSON.stringify({
         identity: username,
@@ -30,7 +30,8 @@ const VideoChat = () => {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-    }).then((res) => res.json());
+    });
+    const data = await res.json();
     Video.connect(data.token, {
       name: roomName,
     })

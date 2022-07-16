@@ -4,7 +4,6 @@ import React from "react";
 import "./styles.css";
 
 const Home = ({ setRoomName, handleSubmit }) => {
-
   const handleRoomNameChange = (e) => {
     setRoomName(e.target.value);
   }
